@@ -1,0 +1,6 @@
+File=pla8masettingsdata.kcfg
+ClassName=InternalSettings
+NameSpace=Pla8ma
+Singleton=false
+Mutators=true
+GlobalEnums=true

@@ -1,0 +1,9 @@
+{
+    "KPlugin": {
+        "Description": "Modify the appearance of the Pla8ma Window Decorator",
+        "Description[de]": "Das Erscheinungsbild des Pla8ma Window Decorator ändern",
+        "Icon": "preferences-system-windows",
+        "Name": "Pla8ma Window Decorator",
+        "Name[de]": "Pla8ma Window Decorator"
+    }
+}

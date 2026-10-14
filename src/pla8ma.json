@@ -1,0 +1,14 @@
+{
+    "KPlugin": {
+        "Description": "Flat window decoration with square corners that follows the Plasma color scheme",
+        "Description[de]": "Flache Fensterdekoration mit eckigen Ecken, die dem Plasma-Farbschema folgt",
+        "EnabledByDefault": true,
+        "Name": "Pla8ma Window Decorator",
+        "Name[de]": "Pla8ma Window Decorator"
+    },
+    "X-KDE-ConfigModule": "kcm_pla8madecoration",
+    "org.kde.kdecoration3": {
+        "blur": false,
+        "recommendedBorderSize": "Normal"
+    }
+}
