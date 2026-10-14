@@ -1,5 +1,7 @@
 # Pla8ma Window Decorator
 
+[![Copr build status](https://copr.fedorainfracloud.org/coprs/n0x073/pla8ma/package/pla8ma-window-decorator/status_image/last_build.png)](https://copr.fedorainfracloud.org/coprs/n0x073/pla8ma/package/pla8ma-window-decorator/)
+
 A flat KWin window decoration for Plasma 6.7. It is a native KDecoration3
 decoration written in C++, like Breeze, not an Aurorae/SVG theme.
 
