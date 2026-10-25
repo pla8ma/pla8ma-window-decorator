@@ -1,3 +1,12 @@
+pla8ma-window-decorator (1.0.1-1) resolute; urgency=medium
+
+  * Refined frame geometry and colors.
+  * New settings: classic blue button hover, classic light gray inactive
+    windows.
+  * Settings dialog without help button.
+
+ -- n0x073 <72650981+n0x073@users.noreply.github.com>  Sun, 25 Oct 2026 20:30:00 +0100
+
 pla8ma-window-decorator (1.0.0-1) resolute; urgency=medium
 
   * Initial release.

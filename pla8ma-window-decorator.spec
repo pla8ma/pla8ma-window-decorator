@@ -1,5 +1,5 @@
 Name:           pla8ma-window-decorator
-Version:        1.0.0
+Version:        1.0.1
 Release:        1%{?dist}
 Summary:        Flat KWin window decoration that follows the Plasma color scheme
 
@@ -66,5 +66,11 @@ Settings.
 
 
 %changelog
+* Sun Oct 25 2026 pla8ma - 1.0.1-1
+- Refined frame geometry and colors
+- New settings: classic blue button hover, classic light gray inactive windows
+- Settings dialog without help button
+- Build with KDE Frameworks 6.24 or newer
+
 * Wed Oct 14 2026 pla8ma - 1.0.0-1
 - Initial package

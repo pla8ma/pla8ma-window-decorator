@@ -2,7 +2,7 @@
 
 _pkgname=pla8ma-window-decorator
 pkgname=${_pkgname}-git
-pkgver=1.0.0.r5.gbebd093
+pkgver=1.0.1.r5.gbebd093
 pkgrel=1
 pkgdesc='Flat KWin window decoration that follows the Plasma color scheme'
 arch=('x86_64' 'aarch64')
