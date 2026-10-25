@@ -74,6 +74,22 @@ then build the binary RPM with `rpmbuild --rebuild srpm/*.src.rpm`.
 Rebuild the package for every new Plasma feature release (e.g. 6.8), and update
 `Version`/`Release` and `%changelog` in the spec when something changes.
 
+## Arch Linux
+
+`arch/PKGBUILD` builds the package `pla8ma-window-decorator-git` from the latest
+commit on GitHub. Download it into an empty directory and build it with `makepkg`:
+
+```sh
+mkdir pla8ma-window-decorator && cd pla8ma-window-decorator
+curl -LO https://raw.githubusercontent.com/pla8ma/pla8ma-window-decorator/main/arch/PKGBUILD
+makepkg -si
+```
+
+To update, run `makepkg -si` again in the same directory; it fetches the newest
+commit, rebuilds and installs it.
+
+**Uninstall:** `sudo pacman -R pla8ma-window-decorator-git`
+
 ## Translations
 
 The strings in the code are English. The German translation is in
@@ -102,6 +118,8 @@ To add another language, create `po/<language>/pla8ma_kwin_deco.po`.
 | `src/pla8maboxshadowrenderer.*` | shadow renderer, taken from Breeze |
 | `src/config/` | settings module (KCM) |
 | `po/` | translations |
+| `arch/` | Arch Linux `PKGBUILD` |
+| `debian/` | Debian / Ubuntu packaging |
 
 ## License
 
