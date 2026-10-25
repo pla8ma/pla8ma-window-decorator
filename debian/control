@@ -1,0 +1,35 @@
+Source: pla8ma-window-decorator
+Section: kde
+Priority: optional
+Maintainer: n0x073 <72650981+n0x073@users.noreply.github.com>
+Build-Depends: cmake,
+               debhelper-compat (= 13),
+               extra-cmake-modules (>= 6.24.0),
+               gettext,
+               libkdecorations3-dev,
+               libkf6colorscheme-dev (>= 6.24.0),
+               libkf6config-dev (>= 6.24.0),
+               libkf6coreaddons-dev (>= 6.24.0),
+               libkf6guiaddons-dev (>= 6.24.0),
+               libkf6i18n-dev (>= 6.24.0),
+               libkf6kcmutils-dev (>= 6.24.0),
+               libkf6widgetsaddons-dev (>= 6.24.0),
+               qt6-base-dev (>= 6.10.0)
+Standards-Version: 4.7.2
+Homepage: https://github.com/pla8ma/pla8ma-window-decorator
+Vcs-Browser: https://github.com/pla8ma/pla8ma-window-decorator
+Vcs-Git: https://github.com/pla8ma/pla8ma-window-decorator.git
+Rules-Requires-Root: no
+
+Package: pla8ma-window-decorator
+Architecture: any
+Depends: kwin-wayland | kwin-x11, ${misc:Depends}, ${shlibs:Depends}
+Description: flat KWin window decoration that follows the Plasma color scheme
+ Pla8ma Window Decorator is a native KDecoration3 window decoration for KWin
+ (Plasma 6). It draws a flat, single colored frame with square corners and
+ caption buttons attached to the top edge.
+ .
+ By default the frame uses the accent color of the active KDE color scheme
+ and changes along with it. The frame color, intensity, inactive color, title
+ text color, title alignment, button size and shadow can be changed in System
+ Settings.
