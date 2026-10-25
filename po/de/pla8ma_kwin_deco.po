@@ -4,7 +4,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: pla8ma-window-decorator\n"
-"PO-Revision-Date: 2026-10-14 12:00+0200\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-25 18:35+0100\n"
+"PO-Revision-Date: 2026-10-25 18:40+0100\n"
 "Last-Translator: pla8ma\n"
 "Language-Team: German\n"
 "Language: de\n"
@@ -13,176 +15,196 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: config/pla8maconfigwidget.cpp:44 config/pla8maconfigwidget.cpp:120
+#: config/pla8maconfigwidget.cpp:47 config/pla8maconfigwidget.cpp:128
 #, kde-format
 msgctxt "percentage"
 msgid "%1 %"
 msgstr "%1 %"
 
-#: config/pla8maconfigwidget.cpp:55
+#: config/pla8maconfigwidget.cpp:58
 #, kde-format
 msgid "Accent color of the color scheme"
 msgstr "Akzentfarbe des Farbschemas"
 
-#: config/pla8maconfigwidget.cpp:55
+#: config/pla8maconfigwidget.cpp:58
 #, kde-format
 msgid "Title bar color of the color scheme"
 msgstr "Titelleistenfarbe des Farbschemas"
 
-#: config/pla8maconfigwidget.cpp:55 config/pla8maconfigwidget.cpp:75
-#: config/pla8maconfigwidget.cpp:83
+#: config/pla8maconfigwidget.cpp:58 config/pla8maconfigwidget.cpp:79
+#: config/pla8maconfigwidget.cpp:87
 #, kde-format
 msgid "Custom color"
 msgstr "Eigene Farbe"
 
-#: config/pla8maconfigwidget.cpp:56
+#: config/pla8maconfigwidget.cpp:59
 #, kde-format
 msgid "Frame color:"
 msgstr "Rahmenfarbe:"
 
-#: config/pla8maconfigwidget.cpp:59
+#: config/pla8maconfigwidget.cpp:62
 #, kde-format
 msgid "Custom color:"
 msgstr "Eigene Farbe:"
 
-#: config/pla8maconfigwidget.cpp:68
+#: config/pla8maconfigwidget.cpp:71
 #, kde-format
 msgid "Color intensity:"
 msgstr "Farbintensität:"
 
-#: config/pla8maconfigwidget.cpp:72
+#: config/pla8maconfigwidget.cpp:75
+#, kde-format
+msgid "Classic (light gray, gray close button)"
+msgstr "Klassisch (hellgrau, grauer Schließen-Knopf)"
+
+#: config/pla8maconfigwidget.cpp:76
 #, kde-format
 msgid "Faded frame color"
 msgstr "Verblasste Rahmenfarbe"
 
-#: config/pla8maconfigwidget.cpp:73
+#: config/pla8maconfigwidget.cpp:77
 #, kde-format
 msgid "Same as active window"
 msgstr "Wie aktives Fenster"
 
-#: config/pla8maconfigwidget.cpp:74
+#: config/pla8maconfigwidget.cpp:78
 #, kde-format
 msgid "Inactive title bar color of the color scheme"
 msgstr "Inaktive Titelleistenfarbe des Farbschemas"
 
-#: config/pla8maconfigwidget.cpp:76
+#: config/pla8maconfigwidget.cpp:80
 #, kde-format
 msgid "Inactive windows:"
 msgstr "Inaktive Fenster:"
 
-#: config/pla8maconfigwidget.cpp:79
+#: config/pla8maconfigwidget.cpp:83
 #, kde-format
 msgid "Custom inactive color:"
 msgstr "Eigene inaktive Farbe:"
 
-#: config/pla8maconfigwidget.cpp:83
+#: config/pla8maconfigwidget.cpp:87
 #, kde-format
 msgid "Automatic (black or white, whichever has more contrast)"
 msgstr "Automatisch (Schwarz oder Weiß, je nach Kontrast)"
 
-#: config/pla8maconfigwidget.cpp:83
+#: config/pla8maconfigwidget.cpp:87
 #, kde-format
 msgid "Text color of the color scheme"
 msgstr "Textfarbe des Farbschemas"
 
-#: config/pla8maconfigwidget.cpp:84
+#: config/pla8maconfigwidget.cpp:88
 #, kde-format
 msgid "Title text:"
 msgstr "Titeltext:"
 
-#: config/pla8maconfigwidget.cpp:87
+#: config/pla8maconfigwidget.cpp:91
 #, kde-format
 msgid "Custom text color:"
 msgstr "Eigene Textfarbe:"
 
-#: config/pla8maconfigwidget.cpp:90
+#: config/pla8maconfigwidget.cpp:94
 #, kde-format
 msgid "Left"
 msgstr "Links"
 
-#: config/pla8maconfigwidget.cpp:90
+#: config/pla8maconfigwidget.cpp:94
 #, kde-format
 msgid "Center"
 msgstr "Zentriert"
 
-#: config/pla8maconfigwidget.cpp:90
+#: config/pla8maconfigwidget.cpp:94
 #, kde-format
 msgid "Center (full width)"
 msgstr "Zentriert (volle Breite)"
 
-#: config/pla8maconfigwidget.cpp:90
+#: config/pla8maconfigwidget.cpp:94
 #, kde-format
 msgid "Right"
 msgstr "Rechts"
 
-#: config/pla8maconfigwidget.cpp:91
+#: config/pla8maconfigwidget.cpp:95
 #, kde-format
 msgid "Title alignment:"
 msgstr "Titelausrichtung:"
 
-#: config/pla8maconfigwidget.cpp:95
+#: config/pla8maconfigwidget.cpp:99
 #, kde-format
 msgctxt "@item:inlistbox button size"
 msgid "Small"
 msgstr "Klein"
 
-#: config/pla8maconfigwidget.cpp:95
+#: config/pla8maconfigwidget.cpp:99
 #, kde-format
 msgctxt "@item:inlistbox button size"
 msgid "Normal"
 msgstr "Normal"
 
-#: config/pla8maconfigwidget.cpp:95
+#: config/pla8maconfigwidget.cpp:99
 #, kde-format
 msgctxt "@item:inlistbox button size"
 msgid "Large"
 msgstr "Groß"
 
-#: config/pla8maconfigwidget.cpp:96
+#: config/pla8maconfigwidget.cpp:100
 #, kde-format
 msgid "Button size:"
 msgstr "Knopfgröße:"
 
-#: config/pla8maconfigwidget.cpp:98
+#: config/pla8maconfigwidget.cpp:103
+#, kde-format
+msgid "Classic (blue)"
+msgstr "Klassisch (blau)"
+
+#: config/pla8maconfigwidget.cpp:103
+#, kde-format
+msgid "Lighter frame color"
+msgstr "Aufgehellte Rahmenfarbe"
+
+#: config/pla8maconfigwidget.cpp:104
+#, kde-format
+msgid "Button hover color:"
+msgstr "Farbe beim Überfahren:"
+
+#: config/pla8maconfigwidget.cpp:106
 #, kde-format
 msgid "Always draw the close button of active windows in red"
 msgstr "Schließen-Knopf aktiver Fenster immer rot"
 
-#: config/pla8maconfigwidget.cpp:101
+#: config/pla8maconfigwidget.cpp:109
 #, kde-format
 msgid "Draw a thin outline"
 msgstr "Dünne Umrandung zeichnen"
 
-#: config/pla8maconfigwidget.cpp:106
+#: config/pla8maconfigwidget.cpp:114
 #, kde-format
 msgctxt "@item:inlistbox shadow size"
 msgid "None"
 msgstr "Keiner"
 
-#: config/pla8maconfigwidget.cpp:106
+#: config/pla8maconfigwidget.cpp:114
 #, kde-format
 msgctxt "@item:inlistbox shadow size"
 msgid "Small"
 msgstr "Klein"
 
-#: config/pla8maconfigwidget.cpp:106
+#: config/pla8maconfigwidget.cpp:114
 #, kde-format
 msgctxt "@item:inlistbox shadow size"
 msgid "Medium"
 msgstr "Mittel"
 
-#: config/pla8maconfigwidget.cpp:106
+#: config/pla8maconfigwidget.cpp:114
 #, kde-format
 msgctxt "@item:inlistbox shadow size"
 msgid "Large"
 msgstr "Groß"
 
-#: config/pla8maconfigwidget.cpp:107
+#: config/pla8maconfigwidget.cpp:115
 #, kde-format
 msgid "Shadow:"
 msgstr "Schatten:"
 
-#: config/pla8maconfigwidget.cpp:111
+#: config/pla8maconfigwidget.cpp:119
 #, kde-format
 msgid "Shadow strength:"
 msgstr "Schattenstärke:"

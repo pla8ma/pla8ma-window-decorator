@@ -139,6 +139,9 @@ QColor Decoration::inactiveFrameColor() const
         return window()->color(ColorGroup::Inactive, ColorRole::TitleBar);
     case InternalSettings::InactiveCustom:
         return m_internalSettings->inactiveCustomColor();
+    case InternalSettings::InactiveClassic:
+        // neutral light gray, independent of the frame color
+        return QColor(235, 235, 235);
     case InternalSettings::InactiveFaded:
     default:
         // inactive frames are a pale, washed out version of the frame color
@@ -165,16 +168,17 @@ QColor Decoration::fontColor() const
         break;
     case InternalSettings::TextAutomatic:
     default: {
-        // black caption, white when the frame is too dark for it
+        // dark gray caption, white when the frame is too dark for it
         const QColor frame = frameColor();
-        const QColor black(0, 0, 0);
+        const QColor dark(40, 40, 40);
         const QColor white(255, 255, 255);
-        color = KColorUtils::contrastRatio(frame, black) >= KColorUtils::contrastRatio(frame, white) ? black : white;
+        color = KColorUtils::contrastRatio(frame, dark) >= KColorUtils::contrastRatio(frame, white) ? dark : white;
         break;
     }
     }
 
-    if (!active) {
+    // the classic inactive look keeps the caption at full strength
+    if (!active && m_internalSettings->inactiveColorMode() != InternalSettings::InactiveClassic) {
         color = KColorUtils::mix(color, frameColor(), 0.45);
     }
     return color;
@@ -183,7 +187,13 @@ QColor Decoration::fontColor() const
 //________________________________________________________________
 QColor Decoration::outlineColor() const
 {
-    return KColorUtils::mix(frameColor(), Qt::black, window()->isActive() ? 0.4 : 0.25);
+    return KColorUtils::mix(frameColor(), Qt::black, window()->isActive() ? 0.23 : 0.1);
+}
+
+//________________________________________________________________
+QColor Decoration::innerOutlineColor() const
+{
+    return KColorUtils::mix(frameColor(), Qt::black, window()->isActive() ? 0.15 : 0.07);
 }
 
 //________________________________________________________________
@@ -223,6 +233,9 @@ qreal Decoration::buttonWidth(DecorationButtonType type) const
     switch (type) {
     case DecorationButtonType::Close:
         width = Metrics::Button_CloseWidth;
+        break;
+    case DecorationButtonType::Maximize:
+        width = Metrics::Button_MaximizeWidth;
         break;
     case DecorationButtonType::Menu:
         width = Metrics::Button_IconWidth;
@@ -388,12 +401,12 @@ QMarginsF Decoration::bordersFor(qreal scale) const
     const qreal right = isRightEdge() ? 0 : frameWidth(false, scale);
     const qreal bottom = (window()->isShaded() || isBottomEdge()) ? 0 : frameWidth(true, scale);
 
-    // caption buttons plus the frame below them
-    qreal top = buttonsTopOffset() + buttonHeight();
+    // caption buttons plus the frame below them, independent of the buttons' top offset
+    qreal top = buttonHeight();
     if (isMaximized() || isTopEdge()) {
         top += 2 * unit();
     } else {
-        top += std::max<qreal>(frameWidth(true, scale), 4 * unit());
+        top += std::max<qreal>(frameWidth(true, scale), 4 * unit()) + Metrics::TitleBar_BottomExtra * unit();
     }
 
     // make sure the caption always fits
@@ -475,10 +488,11 @@ void Decoration::updateButtonsGeometry()
         m_leftButtons->setPos(QPointF(x, y));
     }
 
-    // right buttons: flush with the inner edge of the frame, or the screen edge when maximized
+    // right buttons: covering the innermost column of the frame (where the inner outline is), or flush with the screen edge when maximized
     if (!m_rightButtons->buttons().isEmpty()) {
         m_rightButtons->setSpacing(0);
-        const qreal x = size().width() - m_rightButtons->geometry().width() - (isRightEdge() ? 0 : borderRight());
+        const qreal rightMargin = isRightEdge() ? 0 : std::max<qreal>(0, borderRight() - KDecoration3::snapToPixelGrid(unit(), window()->nextScale()));
+        const qreal x = size().width() - m_rightButtons->geometry().width() - rightMargin;
         m_rightButtons->setPos(QPointF(x, y));
     }
 
@@ -502,8 +516,7 @@ void Decoration::paint(QPainter *painter, const QRectF &repaintRegion)
     if (m_internalSettings->drawOutline() && !isMaximized() && !window()->isShaded()) {
         const qreal px = std::max(KDecoration3::pixelSize(window()->scale()), KDecoration3::snapToPixelGrid(1, window()->scale()));
         const QRectF client(borderLeft(), borderTop(), size().width() - borderLeft() - borderRight(), size().height() - borderTop() - borderBottom());
-        QColor color = outlineColor();
-        color.setAlphaF(color.alphaF() * 0.5);
+        const QColor color = innerOutlineColor();
 
         painter->save();
         painter->setPen(Qt::NoPen);

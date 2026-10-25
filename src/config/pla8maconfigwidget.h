@@ -54,6 +54,7 @@ private:
     KColorButton *m_customTextColor = nullptr;
     QComboBox *m_titleAlignment = nullptr;
     QComboBox *m_buttonSize = nullptr;
+    QComboBox *m_hoverColorMode = nullptr;
     QCheckBox *m_redCloseButton = nullptr;
     QCheckBox *m_drawOutline = nullptr;
     QComboBox *m_shadowSize = nullptr;

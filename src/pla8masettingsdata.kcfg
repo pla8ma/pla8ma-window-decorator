@@ -31,12 +31,13 @@
     <!-- frame color of inactive windows -->
     <entry name="InactiveColorMode" type="Enum">
       <choices>
+          <choice name="InactiveClassic"/>
           <choice name="InactiveFaded"/>
           <choice name="InactiveSameAsActive"/>
           <choice name="InactiveSchemeTitleBar"/>
           <choice name="InactiveCustom"/>
       </choices>
-      <default>InactiveFaded</default>
+      <default>InactiveClassic</default>
     </entry>
 
     <entry name="InactiveCustomColor" type="Color">
@@ -76,6 +77,15 @@
           <choice name="ButtonLarge"/>
       </choices>
       <default>ButtonDefault</default>
+    </entry>
+
+    <!-- background of hovered / pressed buttons (except close) -->
+    <entry name="HoverColorMode" type="Enum">
+      <choices>
+          <choice name="HoverClassic"/>
+          <choice name="HoverFrameColor"/>
+      </choices>
+      <default>HoverClassic</default>
     </entry>
 
     <!-- active close button is always red -->

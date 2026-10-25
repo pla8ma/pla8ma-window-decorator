@@ -17,13 +17,16 @@ using InternalSettingsPtr = QSharedPointer<InternalSettings>;
 namespace Metrics
 {
 //* height of the caption buttons for the default button size
-static constexpr qreal Button_Height = 21;
+static constexpr qreal Button_Height = 20;
 
-//* width of minimize / maximize (and every other non-close) button
+//* width of minimize (and every other non-close) button
 static constexpr qreal Button_Width = 26;
 
+//* width of the maximize button
+static constexpr qreal Button_MaximizeWidth = 25;
+
 //* width of the close button
-static constexpr qreal Button_CloseWidth = 46;
+static constexpr qreal Button_CloseWidth = 45;
 
 //* width of the window menu (icon) button
 static constexpr qreal Button_IconWidth = 22;
@@ -35,7 +38,10 @@ static constexpr qreal Icon_Size = 16;
 static constexpr qreal TitleBar_SideMargin = 6;
 
 //* frame width for the default ("Normal") KWin border size
-static constexpr qreal Frame_Normal = 8;
+static constexpr qreal Frame_Normal = 7;
+
+//* frame between the caption buttons and the window content, on top of the side frame width
+static constexpr qreal TitleBar_BottomExtra = 3;
 
 // shadow dimensions (pixels)
 static constexpr int Shadow_Overlap = 2;

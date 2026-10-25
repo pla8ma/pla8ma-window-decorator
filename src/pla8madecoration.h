@@ -53,8 +53,11 @@ public:
     //* caption and button glyph color
     QColor fontColor() const;
 
-    //* thin line around the frame and around the client area
+    //* thin line around the frame
     QColor outlineColor() const;
+
+    //* thin line between the frame and the client area
+    QColor innerOutlineColor() const;
     //@}
 
     //*@name metrics

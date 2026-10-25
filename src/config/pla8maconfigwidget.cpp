@@ -24,10 +24,13 @@ namespace Pla8ma
 ConfigWidget::ConfigWidget(QObject *parent, const KPluginMetaData &data, const QVariantList & /*args*/)
     : KCModule(parent, data)
 {
+    // there is no handbook for this module, so no help button
+    setButtons(KCModule::Default | KCModule::Apply);
+
     setupUi();
 
     // track ui changes
-    for (QComboBox *combo : {m_colorMode, m_inactiveColorMode, m_textColorMode, m_titleAlignment, m_buttonSize, m_shadowSize}) {
+    for (QComboBox *combo : {m_colorMode, m_inactiveColorMode, m_textColorMode, m_titleAlignment, m_buttonSize, m_hoverColorMode, m_shadowSize}) {
         connect(combo, &QComboBox::currentIndexChanged, this, &ConfigWidget::updateChanged);
         connect(combo, &QComboBox::currentIndexChanged, this, &ConfigWidget::updateEnabledState);
     }
@@ -69,7 +72,8 @@ void ConfigWidget::setupUi()
 
     // inactive windows
     m_inactiveColorMode = new QComboBox(widget());
-    m_inactiveColorMode->addItems({i18n("Faded frame color"),
+    m_inactiveColorMode->addItems({i18n("Classic (light gray, gray close button)"),
+                                   i18n("Faded frame color"),
                                    i18n("Same as active window"),
                                    i18n("Inactive title bar color of the color scheme"),
                                    i18n("Custom color")});
@@ -94,6 +98,10 @@ void ConfigWidget::setupUi()
     m_buttonSize = new QComboBox(widget());
     m_buttonSize->addItems({i18nc("@item:inlistbox button size", "Small"), i18nc("@item:inlistbox button size", "Normal"), i18nc("@item:inlistbox button size", "Large")});
     layout->addRow(i18n("Button size:"), m_buttonSize);
+
+    m_hoverColorMode = new QComboBox(widget());
+    m_hoverColorMode->addItems({i18n("Classic (blue)"), i18n("Lighter frame color")});
+    layout->addRow(i18n("Button hover color:"), m_hoverColorMode);
 
     m_redCloseButton = new QCheckBox(i18n("Always draw the close button of active windows in red"), widget());
     layout->addRow(QString(), m_redCloseButton);
@@ -124,6 +132,7 @@ void ConfigWidget::assign(InternalSettings *settings)
     m_customTextColor->setColor(settings->customTextColor());
     m_titleAlignment->setCurrentIndex(settings->titleAlignment());
     m_buttonSize->setCurrentIndex(settings->buttonSize());
+    m_hoverColorMode->setCurrentIndex(settings->hoverColorMode());
     m_redCloseButton->setChecked(settings->redCloseButton());
     m_drawOutline->setChecked(settings->drawOutline());
     m_shadowSize->setCurrentIndex(settings->shadowSize());
@@ -156,6 +165,7 @@ void ConfigWidget::save()
     m_internalSettings->setCustomTextColor(m_customTextColor->color());
     m_internalSettings->setTitleAlignment(m_titleAlignment->currentIndex());
     m_internalSettings->setButtonSize(m_buttonSize->currentIndex());
+    m_internalSettings->setHoverColorMode(m_hoverColorMode->currentIndex());
     m_internalSettings->setRedCloseButton(m_redCloseButton->isChecked());
     m_internalSettings->setDrawOutline(m_drawOutline->isChecked());
     m_internalSettings->setShadowSize(m_shadowSize->currentIndex());
@@ -198,7 +208,8 @@ void ConfigWidget::updateChanged()
         || m_colorIntensity->value() != m_internalSettings->colorIntensity() || m_inactiveColorMode->currentIndex() != m_internalSettings->inactiveColorMode()
         || m_inactiveCustomColor->color() != m_internalSettings->inactiveCustomColor() || m_textColorMode->currentIndex() != m_internalSettings->textColorMode()
         || m_customTextColor->color() != m_internalSettings->customTextColor() || m_titleAlignment->currentIndex() != m_internalSettings->titleAlignment()
-        || m_buttonSize->currentIndex() != m_internalSettings->buttonSize() || m_redCloseButton->isChecked() != m_internalSettings->redCloseButton()
+        || m_buttonSize->currentIndex() != m_internalSettings->buttonSize() || m_hoverColorMode->currentIndex() != m_internalSettings->hoverColorMode()
+        || m_redCloseButton->isChecked() != m_internalSettings->redCloseButton()
         || m_drawOutline->isChecked() != m_internalSettings->drawOutline() || m_shadowSize->currentIndex() != m_internalSettings->shadowSize()
         || m_shadowStrength->value() != m_internalSettings->shadowStrength();
 

@@ -5,10 +5,11 @@
 A flat KWin window decoration for Plasma 6.7. It is a native KDecoration3
 decoration written in C++, like Breeze, not an Aurorae/SVG theme.
 
-- flat, single colored frame with square corners (8 px with border size "Normal")
+- flat, single colored frame with square corners (8 px including the outline with border size "Normal")
 - minimize / maximize / close buttons attached to the top edge, red close button
 - title centered over the full width, window icon on the left
-- hover: lighter frame color, pressed: darker frame color
+- hover: blue with a white glyph (or a lighter frame color), close button turns bright red
+- inactive windows: light gray frame with a gray close button (or a faded frame color)
 - thin dark outline around the window and the window content, soft shadow
 
 ## Color
@@ -23,8 +24,9 @@ Configurable under *System Settings → Colors & Themes → Window Decorations �
 | --- | --- |
 | Frame color | accent color · title bar color of the color scheme · custom color |
 | Color intensity | 0–100 % (blends towards the window background color) |
-| Inactive windows | faded · same as active · inactive title bar color of the scheme · custom color |
+| Inactive windows | classic (light gray, gray close button) · faded · same as active · inactive title bar color of the scheme · custom color |
 | Title text | automatic black/white by contrast · text color of the scheme · custom color |
+| Button hover color | classic (blue) · lighter frame color |
 | More | title alignment, button size, red close button, outline, shadow |
 
 As with Breeze, the border width comes from the global "Border size" setting.

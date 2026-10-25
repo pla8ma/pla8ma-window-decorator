@@ -24,6 +24,10 @@ namespace
 const QColor s_closeNormal(199, 80, 80);
 const QColor s_closeHover(224, 67, 67);
 const QColor s_closePressed(153, 61, 61);
+
+// classic hover colors of the other buttons
+const QColor s_classicHover(54, 101, 179);
+const QColor s_classicPressed(61, 96, 153);
 }
 
 //__________________________________________________________________
@@ -310,8 +314,19 @@ QColor Button::backgroundColor() const
             return s_closeHover;
         } else if (d->window()->isActive() && d->internalSettings()->redCloseButton()) {
             return s_closeNormal;
+        } else if (!d->window()->isActive() && d->internalSettings()->inactiveColorMode() == InternalSettings::InactiveClassic) {
+            // classic inactive close button: a darker shade of the frame
+            return KColorUtils::mix(d->frameColor(), Qt::black, 0.2);
         }
         return QColor();
+    }
+
+    if (d->internalSettings()->hoverColorMode() == InternalSettings::HoverClassic) {
+        if (isPressed()) {
+            return s_classicPressed;
+        } else if (isHovered()) {
+            return s_classicHover;
+        }
     }
 
     const QColor frame = d->frameColor();
@@ -336,6 +351,11 @@ QColor Button::foregroundColor() const
 
     // white cross on the red close button
     if (type() == DecorationButtonType::Close && backgroundColor().isValid()) {
+        return Qt::white;
+    }
+
+    // white glyph on the classic blue hover background
+    if (d->internalSettings()->hoverColorMode() == InternalSettings::HoverClassic && (isHovered() || isPressed())) {
         return Qt::white;
     }
 
